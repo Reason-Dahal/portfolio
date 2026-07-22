@@ -1,6 +1,6 @@
 import './ProjectCard.css';
 
-function ProjectCard({ name, tagline, image, tech }) {
+function ProjectCard({ name, tagline, detail, image, tech, repo }) {
   return (
     <article className="project-card">
       <div className="project-card__media">
@@ -10,6 +10,7 @@ function ProjectCard({ name, tagline, image, tech }) {
       <div className="project-card__body">
         <h3 className="project-card__name">{name}</h3>
         <p className="project-card__tagline">{tagline}</p>
+        <p className="project-card__detail">{detail}</p>
 
         <ul className="project-card__tech">
           {tech.map((item) => (
@@ -18,6 +19,15 @@ function ProjectCard({ name, tagline, image, tech }) {
             </li>
           ))}
         </ul>
+
+        <a
+          className="project-card__link"
+          href={repo}
+          target="_blank"
+          rel="noreferrer"
+        >
+          View code on GitHub
+        </a>
       </div>
     </article>
   );

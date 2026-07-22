@@ -89,6 +89,9 @@ function Contact() {
                   <a href={`mailto:${contact.email}`}>{contact.email}</a>
                 </li>
                 <li>
+                    <a href={`tel:${contact.phone.replace(/\s/g, '')}`}>{contact.phone}</a>
+                </li>
+                <li>
                   <a href={contact.linkedin} target="_blank" rel="noreferrer">
                     LinkedIn
                   </a>

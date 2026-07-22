@@ -57,3 +57,16 @@
     padding: 2px var(--space-2);
     list-style: none;
   }
+  .project-card__detail {
+    font-size: 13px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: var(--space-3);
+  }
+  
+  .project-card__link {
+    display: inline-block;
+    margin-top: var(--space-3);
+    font-size: 14px;
+    font-weight: 600;
+  }

@@ -13,13 +13,15 @@ function Projects() {
 
         <div className="projects__grid">
           {projects.map((project) => (
-            <ProjectCard
-              key={project.slug}
-              name={project.name}
-              tagline={project.tagline}
-              image={project.image}
-              tech={project.tech}
-            />
+           <ProjectCard
+           key={project.slug}
+           name={project.name}
+           tagline={project.tagline}
+           detail={project.detail}
+           image={project.image}
+           tech={project.tech}
+           repo={project.repo}
+         />
           ))}
         </div>
       </div>
