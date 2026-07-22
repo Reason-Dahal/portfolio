@@ -4,29 +4,55 @@ import './Contact.css';
 
 function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState('idle');
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setForm((previous) => ({ ...previous, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const subject = encodeURIComponent(`Portfolio enquiry from ${form.name}`);
-    const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`);
-    window.location.href = `mailto:${contact.email}?subject=${subject}&body=${body}`;
+    setStatus('sending');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+          subject: `Portfolio enquiry from ${form.name}`,
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        }),
+      });
+
+      if (response.ok) {
+        setStatus('sent');
+        setForm({ name: '', email: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
   };
 
   return (
     <section className="contact" id="contact" aria-labelledby="contact-heading">
       <div className="container">
-        <p className="section__eyebrow">Contact</p>
+        <p className="section__label">
+          <span>04</span> contact
+        </p>
+
         <h2 id="contact-heading" className="section__title">
-          Let's work together
+          Let&apos;s work together
         </h2>
+
         <p className="contact__intro">
-          Open to internship opportunities and freelance projects. Tell me what you're
-          building.
+          Looking for a software engineering internship where I can contribute and grow.
+          Happy to talk about your team or walk through any of my projects.
         </p>
 
         <div className="contact__grid">
@@ -76,9 +102,21 @@ function Contact() {
               />
             </div>
 
-            <button className="btn btn-primary" type="submit">
-              Send message
+            <button className="btn btn-primary" type="submit" disabled={status === 'sending'}>
+              {status === 'sending' ? 'Sending…' : 'Send message'}
             </button>
+
+            {status === 'sent' && (
+              <p className="contact__status" role="status">
+                Message sent — I&apos;ll get back to you soon.
+              </p>
+            )}
+
+            {status === 'error' && (
+              <p className="contact__status contact__status--error" role="status">
+                Something went wrong. Please email me directly at {contact.email}.
+              </p>
+            )}
           </form>
 
           <aside className="contact__aside">
@@ -89,7 +127,7 @@ function Contact() {
                   <a href={`mailto:${contact.email}`}>{contact.email}</a>
                 </li>
                 <li>
-                    <a href={`tel:${contact.phone.replace(/\s/g, '')}`}>{contact.phone}</a>
+                  <a href={`tel:${contact.phone.replace(/\s/g, '')}`}>{contact.phone}</a>
                 </li>
                 <li>
                   <a href={contact.linkedin} target="_blank" rel="noreferrer">
@@ -104,7 +142,7 @@ function Contact() {
               </ul>
             </div>
 
-            <a className="contact__cv" href={site.cv} download>
+            <a className="contact__cv" href={site.cv} download="Reason-Dahal-CV.pdf">
               <span className="contact__cv-title">Download CV (PDF)</span>
               <span className="contact__cv-note">Full experience and education</span>
             </a>
