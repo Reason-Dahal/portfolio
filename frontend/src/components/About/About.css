@@ -1,17 +1,24 @@
 .about {
-    padding: var(--space-12) 0;
+    padding-bottom: var(--space-12);
   }
   
   .about__grid {
     display: grid;
     gap: var(--space-8);
-    margin-top: var(--space-6);
   }
   
   .about__paragraph {
     color: var(--color-text-secondary);
-    max-width: 65ch;
+    max-width: 62ch;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
     margin-bottom: var(--space-4);
+  }
+  
+  .about__paragraph:first-child {
+    font-size: 18px;
+    color: var(--color-text);
   }
   
   .about__paragraph:last-child {
@@ -19,15 +26,33 @@
   }
   
   .about__facts {
+    position: relative;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     padding: var(--space-6);
     align-self: start;
+    overflow: hidden;
+  }
+  
+  .about__facts::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-accent);
+    background-size: 220% auto;
+    animation: shimmer 6s linear infinite;
   }
   
   .about__facts-title {
-    font-size: 16px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
     margin-bottom: var(--space-4);
   }
   
@@ -37,7 +62,7 @@
   }
   
   .about__fact-label {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--color-text-muted);
   }
   
@@ -47,7 +72,7 @@
   
   @media (min-width: 900px) {
     .about {
-      padding: var(--space-20) 0;
+      padding-bottom: var(--space-20);
     }
   
     .about__grid {

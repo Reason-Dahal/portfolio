@@ -1,17 +1,186 @@
-.section__eyebrow {
-    font-size: 13px;
-    color: var(--color-text-muted);
-    letter-spacing: 0.04em;
-    margin-bottom: var(--space-1);
+.container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+  
+  .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 13px var(--space-6);
+    border-radius: var(--radius);
+    font-size: 15px;
+    font-weight: 600;
+    border: 1px solid transparent;
+    cursor: pointer;
+    overflow: hidden;
+    transition:
+      transform 240ms var(--ease),
+      box-shadow 240ms var(--ease),
+      border-color 240ms var(--ease),
+      color 240ms var(--ease);
+  }
+  
+  .btn:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+  }
+  
+  .btn-primary {
+    position: relative;
+    isolation: isolate;
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-accent);
+    background-size: 240% 100%;
+    opacity: 0;
+    transition: opacity 240ms var(--ease);
+    z-index: -1;
+  }
+  
+  .btn-primary:hover::after {
+    opacity: 1;
+    animation: shimmer 3s linear infinite;
+  }
+  
+  .btn-primary:hover {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .btn-primary > * {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .btn-secondary {
+    background: var(--color-surface);
+    color: var(--color-text);
+    border-color: var(--color-border);
+  }
+  
+  .btn-secondary:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .section__label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    padding-top: var(--space-12);
+    margin-bottom: var(--space-4);
+  }
+  
+  .section__label span {
+    color: var(--teal-400);
+    text-shadow: 0 0 12px rgba(29, 158, 117, 0.45);
+    animation: label-glow 3s ease-in-out infinite;
+  }
+  
+  .section__label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--teal-200), transparent);
   }
   
   .section__title {
-    font-size: 28px;
-    margin-bottom: var(--space-4);
+    font-size: 27px;
+    letter-spacing: -0.025em;
+    margin-bottom: var(--space-6);
+    background: var(--gradient-accent);
+    background-size: 220% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 7s linear infinite;
+    display: inline-block;
+  }
+
+  .section__title {
+    position: relative;
+  }
+  
+  .section__title::before {
+    content: '';
+    position: absolute;
+    inset: -20px -30px;
+    background: radial-gradient(ellipse, rgba(29, 158, 117, 0.14), transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  @keyframes label-glow {
+    0%,
+    100% {
+      text-shadow: 0 0 8px rgba(29, 158, 117, 0.35);
+    }
+    50% {
+      text-shadow: 0 0 18px rgba(29, 158, 117, 0.7);
+    }
+  }
+  @keyframes shimmer {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 240% 50%;
+    }
+  }
+  
+  @keyframes pulse-dot {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(29, 158, 117, 0.5);
+    }
+    70% {
+      box-shadow: 0 0 0 8px rgba(29, 158, 117, 0);
+    }
+  }
+  
+  @keyframes float-blob {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(20px, -24px) scale(1.08);
+    }
   }
   
   @media (min-width: 900px) {
     .section__title {
       font-size: 32px;
+    }
+  
+    .section__label {
+      padding-top: var(--space-20);
+    }
+  }
+  @keyframes stat-glow {
+    0%,
+    100% {
+      text-shadow: 0 0 14px rgba(93, 202, 165, 0.4);
+    }
+    50% {
+      text-shadow: 0 0 26px rgba(93, 202, 165, 0.75);
     }
   }

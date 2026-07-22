@@ -6,7 +6,7 @@ function Skills() {
   return (
     <section className="skills" id="skills" aria-labelledby="skills-heading">
       <div className="container">
-        <p className="section__eyebrow">Skills</p>
+        <p className="section__label">Skills</p>
         <h2 id="skills-heading" className="section__title">
           What I work with
         </h2>

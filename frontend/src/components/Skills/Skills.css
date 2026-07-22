@@ -1,23 +1,36 @@
 .skills {
-    padding: var(--space-12) 0;
+    padding-bottom: var(--space-12);
   }
   
   .skills__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
     gap: var(--space-4);
-    margin-top: var(--space-6);
   }
   
   .skills__card {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
-    padding: var(--space-4);
+    padding: var(--space-5, var(--space-4));
+    transition:
+      transform 280ms var(--ease),
+      box-shadow 280ms var(--ease),
+      border-color 280ms var(--ease);
+  }
+  
+  .skills__card:hover {
+    transform: translateY(-3px);
+    border-color: var(--teal-200);
+    box-shadow: var(--shadow-md);
   }
   
   .skills__card-title {
-    font-size: 15px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
     margin-bottom: var(--space-3);
   }
   
@@ -28,8 +41,9 @@
   }
   
   .skills__learning {
+    position: relative;
     background: var(--color-surface);
-    border: 1px solid var(--color-border);
+    border: 1px dashed var(--teal-200);
     border-radius: var(--radius-lg);
     padding: var(--space-4);
     margin-top: var(--space-4);
@@ -43,6 +57,6 @@
   
   @media (min-width: 900px) {
     .skills {
-      padding: var(--space-20) 0;
+      padding-bottom: var(--space-20);
     }
   }

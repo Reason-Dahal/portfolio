@@ -3,9 +3,7 @@ import './ProjectCard.css';
 function ProjectCard({ name, tagline, detail, image, tech, repo }) {
   return (
     <article className="project-card">
-      <div className="project-card__media">
-        <img className="project-card__image" src={image} alt={`${name} app screenshot`} />
-      </div>
+    <img className="project-card__image" src={image} alt={`${name} app screenshot`} />
 
       <div className="project-card__body">
         <h3 className="project-card__name">{name}</h3>

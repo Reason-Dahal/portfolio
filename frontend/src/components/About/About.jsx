@@ -5,7 +5,7 @@ function About() {
   return (
     <section className="about" id="about" aria-labelledby="about-heading">
       <div className="container">
-        <p className="section__eyebrow">About</p>
+        <p className="section__label">About</p>
         <h2 id="about-heading" className="section__title">
           A bit about me
         </h2>

@@ -1,10 +1,17 @@
 .skill-tag {
     font-family: var(--font-mono);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
-    padding: var(--space-1) var(--space-3);
+    padding: 5px var(--space-3);
     border-radius: 999px;
     list-style: none;
+    transition:
+      transform 200ms var(--ease),
+      box-shadow 200ms var(--ease);
+  }
+  
+  .skill-tag:hover {
+    transform: translateY(-2px);
   }
   
   .skill-tag--confident {
@@ -13,8 +20,17 @@
     border: 1px solid transparent;
   }
   
+  .skill-tag--confident:hover {
+    box-shadow: 0 3px 10px rgba(15, 110, 86, 0.14);
+  }
+  
   .skill-tag--learning {
     background: transparent;
     color: var(--color-text-muted);
     border: 1px dashed var(--color-border);
+  }
+  
+  .skill-tag--learning:hover {
+    border-color: var(--teal-200);
+    color: var(--color-accent);
   }
