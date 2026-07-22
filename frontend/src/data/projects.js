@@ -9,10 +9,11 @@ export const projects = [
       image: '/images/projects/smartclass.jpg',
       tech: ['Flutter', 'Node.js', 'MongoDB', 'Riverpod', 'JWT'],
       repo: 'https://github.com/Reason-Dahal/smartclass',
+      apk: 'https://github.com/Reason-Dahal/smartclass/releases/download/v2.6.0/Smartclass.v2.6.apk',
     },
     {
       slug: 'ecommerce',
-      name: 'E-Commerce Platform',
+      name: 'SastoTrade',
       tagline:
         'A complete storefront — browsing, cart, and order tracking — running on a REST API I built from scratch.',
       detail:
@@ -20,6 +21,7 @@ export const projects = [
       image: '/images/projects/ecommerce.jpg',
       tech: ['Flutter', 'Node.js', 'MongoDB', 'REST API'],
       repo: 'https://github.com/Reason-Dahal/ecommerce_frontend',
+      apk: 'https://github.com/Reason-Dahal/ecommerce_frontend/releases/download/v1.0.0/SastoTrade_v1.2.apk',
     },
     {
       slug: 'quiz-app',
@@ -31,16 +33,17 @@ export const projects = [
       image: '/images/projects/quiz-app.jpg',
       tech: ['Flutter', 'Firebase', 'Firestore'],
       repo: 'https://github.com/Reason-Dahal/quiz-app',
+      apk: 'https://github.com/Reason-Dahal/quiz-app/releases/download/v1.0.0/quizApp.apk',
     },
     {
       slug: 'track-my-cash',
       name: 'Track My Cash',
-      tagline:
-        'Tracks daily spending completely offline — no account, no internet needed.',
+      tagline: 'Tracks daily spending completely offline — no account, no internet needed.',
       detail:
         'Offline-first SQFlite storage with real-time spending charts, category reporting, and date filtering.',
       image: '/images/projects/track-my-cash.jpg',
       tech: ['Flutter', 'Dart', 'SQFlite'],
       repo: 'https://github.com/Reason-Dahal/track-my-cash',
+      apk: 'https://github.com/Reason-Dahal/track-my-cash/releases/download/v1.0.0/trackmycash.apk',
     },
   ];

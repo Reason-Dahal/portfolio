@@ -7,6 +7,12 @@
     gap: var(--space-4);
   }
   
+  .project-card__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+  
   @media (min-width: 900px) {
     .projects {
       padding-bottom: var(--space-20);

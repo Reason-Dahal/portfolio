@@ -1,9 +1,9 @@
 import './ProjectCard.css';
 
-function ProjectCard({ name, tagline, detail, image, tech, repo }) {
+function ProjectCard({ name, tagline, detail, image, tech, repo, apk }) {
   return (
     <article className="project-card">
-    <img className="project-card__image" src={image} alt={`${name} app screenshot`} />
+      <img className="project-card__image" src={image} alt={`${name} app screenshot`} />
 
       <div className="project-card__body">
         <h3 className="project-card__name">{name}</h3>
@@ -18,14 +18,17 @@ function ProjectCard({ name, tagline, detail, image, tech, repo }) {
           ))}
         </ul>
 
-        <a
-          className="project-card__link"
-          href={repo}
-          target="_blank"
-          rel="noreferrer"
-        >
-          View code on GitHub
-        </a>
+        <div className="project-card__links">
+          <a className="project-card__link" href={repo} target="_blank" rel="noreferrer">
+            View code
+          </a>
+
+          {apk && (
+            <a className="project-card__link" href={apk} target="_blank" rel="noreferrer">
+              Download APK
+            </a>
+          )}
+        </div>
       </div>
     </article>
   );

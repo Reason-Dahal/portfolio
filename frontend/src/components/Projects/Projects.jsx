@@ -24,6 +24,7 @@ function Projects() {
               image={project.image}
               tech={project.tech}
               repo={project.repo}
+              apk={project.apk}
             />
           ))}
         </div>
