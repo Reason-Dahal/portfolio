@@ -1,6 +1,10 @@
 @import './styles/tokens.css';
 @import './styles/global.css';
 
+html {
+  scroll-behavior: smooth;
+}
+
 *,
 *::before,
 *::after {
