@@ -22,3 +22,9 @@ export const site = {
       { label: 'Learning', value: 'React, Django, PostgreSQL' },
     ],
   };
+
+  export const contact = {
+    email: 'you@example.com',
+    linkedin: 'https://linkedin.com/in/your-handle',
+    github: 'https://github.com/Reason-Dahal',
+  };
