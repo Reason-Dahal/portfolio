@@ -43,7 +43,7 @@ function Contact() {
     <section className="contact" id="contact" aria-labelledby="contact-heading">
       <div className="container">
         <p className="section__label">
-          <span>04</span> contact
+          contact
         </p>
 
         <h2 id="contact-heading" className="section__title">
